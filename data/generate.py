@@ -21,6 +21,9 @@ def main(model_folder: str, k: int):
     if not os.path.exists(model_folder):
         os.mkdir(model_folder)
 
+
+    bpy.context.active_object.select_set(True)
+    bpy.ops.object.delete()
     with open(f"{model_folder}/labels.txt", 'w') as f:
         for ctor in random.choices(primitive_constructors, k=k):
             ctor()
